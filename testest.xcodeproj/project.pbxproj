@@ -13,6 +13,10 @@
 		A1C103E62AB08AA4000D91E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1C103E52AB08AA4000D91E7 /* Preview Assets.xcassets */; };
 		A1C103E82AB08AA4000D91E7 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C103E72AB08AA4000D91E7 /* Persistence.swift */; };
 		A1C103EB2AB08AA4000D91E7 /* testest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1C103E92AB08AA4000D91E7 /* testest.xcdatamodeld */; };
+		A1C103F32AB08AFC000D91E7 /* BloodPressure+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C103F12AB08AFC000D91E7 /* BloodPressure+CoreDataClass.swift */; };
+		A1C103F42AB08AFC000D91E7 /* BloodPressure+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C103F22AB08AFC000D91E7 /* BloodPressure+CoreDataProperties.swift */; };
+		A1C103F62AB08D2C000D91E7 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C103F52AB08D2C000D91E7 /* DetailView.swift */; };
+		A1C103F82AB08F4E000D91E7 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C103F72AB08F4E000D91E7 /* ListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		A1C103E52AB08AA4000D91E7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A1C103E72AB08AA4000D91E7 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		A1C103EA2AB08AA4000D91E7 /* testest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = testest.xcdatamodel; sourceTree = "<group>"; };
+		A1C103F12AB08AFC000D91E7 /* BloodPressure+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BloodPressure+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A1C103F22AB08AFC000D91E7 /* BloodPressure+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BloodPressure+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A1C103F52AB08D2C000D91E7 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		A1C103F72AB08F4E000D91E7 /* ListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +47,8 @@
 		A1C103D22AB08AA3000D91E7 = {
 			isa = PBXGroup;
 			children = (
+				A1C103F12AB08AFC000D91E7 /* BloodPressure+CoreDataClass.swift */,
+				A1C103F22AB08AFC000D91E7 /* BloodPressure+CoreDataProperties.swift */,
 				A1C103DD2AB08AA3000D91E7 /* testest */,
 				A1C103DC2AB08AA3000D91E7 /* Products */,
 			);
@@ -57,6 +67,8 @@
 			children = (
 				A1C103DE2AB08AA3000D91E7 /* testestApp.swift */,
 				A1C103E02AB08AA3000D91E7 /* ContentView.swift */,
+				A1C103F52AB08D2C000D91E7 /* DetailView.swift */,
+				A1C103F72AB08F4E000D91E7 /* ListView.swift */,
 				A1C103E22AB08AA4000D91E7 /* Assets.xcassets */,
 				A1C103E72AB08AA4000D91E7 /* Persistence.swift */,
 				A1C103E92AB08AA4000D91E7 /* testest.xcdatamodeld */,
@@ -143,7 +155,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1C103F82AB08F4E000D91E7 /* ListView.swift in Sources */,
 				A1C103EB2AB08AA4000D91E7 /* testest.xcdatamodeld in Sources */,
+				A1C103F42AB08AFC000D91E7 /* BloodPressure+CoreDataProperties.swift in Sources */,
+				A1C103F32AB08AFC000D91E7 /* BloodPressure+CoreDataClass.swift in Sources */,
+				A1C103F62AB08D2C000D91E7 /* DetailView.swift in Sources */,
 				A1C103E82AB08AA4000D91E7 /* Persistence.swift in Sources */,
 				A1C103E12AB08AA3000D91E7 /* ContentView.swift in Sources */,
 				A1C103DF2AB08AA3000D91E7 /* testestApp.swift in Sources */,

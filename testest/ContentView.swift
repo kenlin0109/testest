@@ -12,40 +12,43 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \BloodPressure.mdate, ascending: false)],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var items: FetchedResults<BloodPressure>
 
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+        ZStack{
+            NavigationView {
+                ScrollView {
+                    ForEach(items) { item in
+                        NavigationLink {
+                            DetailView(mdate: item.mdate!,sbp: item.sbp, dbp: item.dbp)
+                        } label: {
+                            ListView(mdate: item.mdate!,sbp: item.sbp, dbp: item.dbp)
+                        }
+                    }
+                    .onDelete(perform: deleteItems)
+                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        EditButton()
+                    }
+                    ToolbarItem {
+                        Button(action: addItem) {
+                            Label("Add Item", systemImage: "plus")
+                        }
                     }
                 }
-                .onDelete(perform: deleteItems)
+                Text("Select an item")
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-            Text("Select an item")
         }
     }
-
     private func addItem() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newItem = BloodPressure(context: viewContext)
+            newItem.mdate = Date()
+            newItem.sbp = 120 + Int16.random(in: -20...20)
+            newItem.dbp = 80 + Int16.random(in: -10...10)
 
             do {
                 try viewContext.save()
@@ -86,3 +89,111 @@ struct ContentView_Previews: PreviewProvider {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
+
+//ZStack{
+//    Color.blue
+//        .ignoresSafeArea()
+//    VStack{
+//        HStack{
+//
+//            Button(action: {
+//
+//            }, label: {
+//                Image(systemName: "arrowshape.left.fill")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(width: 50, height: 30)
+//                    .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
+//
+//
+//            })
+//            .padding(.leading,20)
+//
+//            Label("BloodPressure", systemImage: "")
+//                .font(.title)
+//                .foregroundColor(.white)
+//                .padding(.leading, 26)
+//
+//            Button(action: {
+//
+//            }, label: {
+//                Image(systemName: "plus")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(width: 50, height: 30)
+//                    .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
+//                    .padding(.leading, 26)
+//
+//
+//            })
+//
+//
+//            Spacer()
+//
+//        }
+//
+//        HStack{
+//            Text("history")
+//                .foregroundColor(.white)
+//                .font(.headline)
+//                .multilineTextAlignment(.leading)
+//                .padding(.trailing, 105)
+//
+//        }
+//        ZStack{
+//            RoundedRectangle(cornerRadius: 10)
+//                .fill(Color.secondary)
+//                .frame(width:350, height: 50)
+//            Text("Aug 25, 2023")
+//                .foregroundColor(.white)
+//                .font(.title2)
+//        }
+//        Spacer()
+//
+//        ScrollView{
+//
+//
+//            VStack {
+//                ForEach(BloodPressures){ item in
+//                    ExtractedView(sbp: item.sbp, dbp: item.dbp, mdate: item.mdate!)
+//                }
+//            }
+//            .padding(20)
+////                    .background{
+////
+////                        RoundedRectangle(cornerRadius: 90)
+////
+////                            .fill(Color(red: 240/255, green: 240/255, blue: 240/255))
+////                            .frame(width:395,  height: 700)
+////                            .padding(.top, 150)
+////                    }
+//        }
+//
+//
+//
+//    }
+//}
+//
+//
+//
+//    .navigationBarTitleDisplayMode(.inline)
+//
+//    .toolbar {
+//
+//        ToolbarItem(placement: .navigationBarLeading) {
+//            Button(action: {}, label: {
+//                Image(systemName: "arrowshape.left.fill")
+//            })
+//
+//        }
+//
+//
+//
+//
+//
+//    }
+//    //padding()
+//
+//
+//
+//}
